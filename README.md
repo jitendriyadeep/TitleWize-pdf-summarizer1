@@ -2,7 +2,7 @@
 
 A **Django-based web application** that allows users to upload PDF files and generate summaries in different lengths (short, medium, long).
 
-🔗 **Live Demo:** [Add your deployed link here]
+🔗 **Live Demo:** COMING SOON !!!
 
 ---
 
@@ -59,11 +59,17 @@ pip install -r requirements.txt
 ### 3. Configure the .env file in the root folder
 
 DJANGO_SECRET_KEY= "your_secret_key"
+
 DB_NAME="your_db_name"
+
 DB_USER="your_user_name"
+
 DB_PASSWORD="your_password"
+
 DB_HOST=localhost
+
 DB_PORT=5432
+
 GEMINI_API_KEY="your_api_key"
 
 Although i have given values according to me which can run for a while.
@@ -76,6 +82,7 @@ cd summarizer
 ### 5. Create a Database
 
 python manage.py makemigrations
+
 python manage.py migrate
 
 ### 6. Create a Superuser (Admin)
