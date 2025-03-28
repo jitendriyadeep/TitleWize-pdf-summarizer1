@@ -38,6 +38,11 @@ LOGOUT_REDIRECT_URL = 'login'  # Redirect to login page after logout
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'upload_pdf'
 
+if DEBUG:
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
