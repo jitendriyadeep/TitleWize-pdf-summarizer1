@@ -34,7 +34,7 @@ A **Django-based web application** that allows users to upload PDF files and gen
 
 ### 1. Clone the Repository
 
-git clone https://github.com/jitendriyadeep/TitleWize-pdf-summarizer.git
+git clone https://github.com/jitendriyadeep/TitleWize-pdf-summarizer1.git
 
 cd TitleWize-pdf-summarizer
 
