@@ -32,13 +32,13 @@ A **Django-based web application** that allows users to upload PDF files and gen
 
 ## 🛠️ Installation & Setup
 
-### 1. Clone the Repository
+### 0. Clone the Repository
 
 git clone https://github.com/jitendriyadeep/TitleWize-pdf-summarizer1.git
 
-cd TitleWize-pdf-summarizer
+cd TitleWize-pdf-summarizer1
 
-### 2. Set Up a Virtual Environment
+### 1. Set Up a Virtual Environment
 
 python -m venv venv
 
@@ -52,23 +52,54 @@ venv\Scripts\activate
 
 source venv/bin/activate
 
-### 3. Install Dependencies
+### 2. Install Dependencies
 
 pip install -r requirements.txt
 
-### 4. Set Up the Database
+### 3. Configure the .env file in the root folder
 
+DJANGO_SECRET_KEY= "your_secret_key"
+DB_NAME="your_db_name"
+DB_USER="your_user_name"
+DB_PASSWORD="your_password"
+DB_HOST=localhost
+DB_PORT=5432
+GEMINI_API_KEY="your_api_key"
+
+Although i have given values according to me which can run for a while.
+kindly dont misuse it , as those values are under my name.
+
+### 4. Change the directory where the manage.py file is there
+
+cd summarizer
+
+### 5. Create a Database
+
+python manage.py makemigrations
 python manage.py migrate
 
-### 5. Create a Superuser (Admin)
+### 6. Create a Superuser (Admin)
 
 python manage.py createsuperuser
+
 --->Follow prompts to create admin credentials.<---
 
-### 6. Run the Development Server
+### 7. Run the Development Server
 
 python manage.py runserver
 ➡️ Open http://127.0.0.1:8000 in your browser.
+
+##### if after running the server a error is coming such as
+
+###### "You're accessing the development server over HTTPS, but it only supports HTTP."
+
+###### then try one of the below 3 steps:
+
+->Explicitly type http://127.0.0.1:8000 (not https) in your address bar
+
+->Clear your browser cache completely (Ctrl+Shift+Del in most browsers) [works mostly]
+
+->Try using an incognito/private window
 
 ### 📂 Project Structure
 
