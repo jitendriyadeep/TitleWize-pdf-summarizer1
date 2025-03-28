@@ -74,6 +74,7 @@ GEMINI_API_KEY="your_api_key"
 
 Although i have given values according to me which can run for a while.
 kindly dont misuse it , as those values are under my name.
+if you are using mine then skip this step as its already set up.
 
 ### 4. Change the directory where the manage.py file is there
 
@@ -90,6 +91,8 @@ python manage.py migrate
 python manage.py createsuperuser
 
 --->Follow prompts to create admin credentials.<---
+
+as registeration of new users feature is also there, we can skip this step and can directly create users in frontend.
 
 ### 7. Run the Development Server
 
