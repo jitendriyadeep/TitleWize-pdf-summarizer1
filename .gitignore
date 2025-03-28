@@ -1,0 +1,62 @@
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+/media/
+/staticfiles/
+
+# Virtual Environment
+venv/
+.venv/
+ENV/
+env/
+bin/
+lib/
+include/
+pip-selfcheck.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.sublime-*
+
+# Database
+*.db
+*.sql
+*.sqlite
+*.pid
+/postgres_data/
+!*/migrations/
+*.migrations/__pycache__/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Build/Deployment
+build/
+dist/
+*.egg-info/
+*.manifest
+*.spec
+
+
+
+# AI/ML
+*.bin
+*.h5
+*.pth
+*.pt
+*.joblib
+
+# Python
+*.pyo
+*.pyd
+.mypy_cache/
+.pytest_cache/
+
+

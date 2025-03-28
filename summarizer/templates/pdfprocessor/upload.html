@@ -1,0 +1,43 @@
+{% extends 'pdfprocessor/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Upload PDF for Summarization</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Document Title</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Enter a title for your document">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="pdf_file" class="form-label">PDF File</label>
+                        <input class="form-control" type="file" id="pdf_file" name="pdf_file" accept=".pdf" required>
+                        <div class="form-text">Only PDF files are accepted.</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="summary_length" class="form-label">Summary Length</label>
+                        <select class="form-select" id="summary_length" name="summary_length">
+                            <option value="short">Short (1-2 sentences)</option>
+                            <option value="medium" selected>Medium (3-5 sentences)</option>
+                            <option value="long">Long (paragraph)</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-file-earmark-text me-2"></i>Summarize PDF
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

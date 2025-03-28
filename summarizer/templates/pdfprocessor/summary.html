@@ -1,0 +1,82 @@
+{% extends 'pdfprocessor/base.html' %}
+{% load static %}
+{% load summary_filters %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="mb-0">Summary of "{{ pdf_doc.title }}"</h4>
+                    <a href="{% url 'upload_pdf' %}" class="btn btn-sm btn-light">
+                        <i class="bi bi-arrow-left me-1"></i>New Summary
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle-fill me-2"></i>
+                    This is a {{ pdf_doc.get_summary_length_display|lower }} summary.
+                </div>
+                
+                <div class="summary-content p-3 bg-light rounded">
+                    {% if formatted_summary %}
+                        {{ formatted_summary }}
+                        
+                        <div class="document-analysis mt-4 p-3 bg-white border rounded">
+                            <h5><i class="bi bi-file-earmark-text"></i> Legal Document Metrics</h5>
+                            <div class="row">
+                                <div class="col-md-4 analysis-box">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <h3>{{ party_count }}</h3>
+                                            <p class="text-muted">Parties Identified</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 analysis-box">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <h3>{{ financial_count }}</h3>
+                                            <p class="text-muted">Financial Terms</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 analysis-box">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <h3>{{ doc_ref_count }}</h3>
+                                            <p class="text-muted">Legal References</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="alert alert-warning">Document analysis unavailable</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Document Details</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Title:</strong> {{ pdf_doc.title }}</p>
+                        <p><strong>Uploaded:</strong> {{ pdf_doc.uploaded_at|date:"F j, Y H:i" }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>File:</strong> <a href="{{ pdf_doc.file.url }}" target="_blank">{{ pdf_doc.file.name }}</a></p>
+                        <p><strong>Summary Length:</strong> {{ pdf_doc.get_summary_length_display }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

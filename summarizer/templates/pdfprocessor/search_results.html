@@ -1,0 +1,26 @@
+<!-- templates/pdfprocessor/search_results.html -->
+<div class="search-results">
+    {% for doc in results %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">
+                <a href="{% url 'view_summary' doc.pk %}">{{ doc.title }}</a>
+                <small class="text-muted">Matter #{{ doc.matter_number }}</small>
+            </h5>
+            <div class="search-excerpt">
+                {{ doc.summary|truncatewords:50|highlight:query }}
+            </div>
+            <div class="mt-2">
+                {% if doc.client_name %}
+                <span class="badge bg-info">{{ doc.client_name }}</span>
+                {% endif %}
+                <span class="badge" style="background-color: {{ doc.category.color }}">
+                    {{ doc.category.name }}
+                </span>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <div class="alert alert-warning">No documents found for "{{ query }}"</div>
+    {% endfor %}
+</div>

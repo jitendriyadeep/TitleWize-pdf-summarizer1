@@ -1,0 +1,38 @@
+<!-- templates/pdfprocessor/export_pdf.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .legal-header {
+            border-bottom: 2px solid #333;
+            margin-bottom: 20px;
+        }
+        .metadata-table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .summary-section {
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="legal-header">
+        <h1>{{ doc.title }}</h1>
+        <p>{{ doc.client_name }} | Matter #{{ doc.matter_number }}</p>
+    </div>
+    
+    <table class="metadata-table">
+        <tr>
+            <td>Upload Date:</td>
+            <td>{{ doc.uploaded_at|date:"d F Y" }}</td>
+        </tr>
+        <!-- Add more metadata -->
+    </table>
+    
+    <div class="summary-section">
+        {{ doc.summary|linebreaksbr }}
+    </div>
+</body>
+</html>
